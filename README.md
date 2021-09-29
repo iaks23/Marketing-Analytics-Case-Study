@@ -12,6 +12,7 @@
 
 * [🚨 Problem Statement](#problem)
 * [⚙️ Requirements](#reqs)
+* [🔭 Exploratory Data Analysis](#eda)
 * [📖 Business Questions](#questions)
 * [🌟 Solutions](#solutions)
 
@@ -111,7 +112,9 @@ If the customer doesn’t have at least 1 film recommendation - they also need t
 </p>
  </details>
  
- # 
+ # 🔭 Exploratory Data Analysis <a name='eda'></eda>
+ 
+ 
 
 ----------------------
 
