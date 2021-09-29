@@ -33,7 +33,7 @@ The marketing team have shared with us a draft of the email they wish to send to
  ### Requiremment 1: Top 2 Categories
 <details> 
   <summary>
-     Requirement #1
+     View Requirement Details
   </summary>
 
  For each customer, we need to identify the top 2 <code> categories </code> for each customer based off their past rental history. These top categories will drive marketing creative images as seen in the sci-fi and rom-com examples in the draft email.
@@ -48,7 +48,7 @@ The marketing team have shared with us a draft of the email they wish to send to
 
 <details> 
   <summary>
-    Requirement #2
+    View Requirement Details
   </summary>
 
  The marketing team has also requested for the 3 most popular <code> films </code> for each customer’s top 2 <code> categories </code>.
@@ -67,7 +67,7 @@ If there are less than 3 films available - marketing is happy to show at least 1
   ### Requirements 3 & 4: Individual Customer Insights
  <details> 
   <summary>
-    Requirement #3 & #4
+    View Requirement Details
   </summary>
 
 The number of films watched by each customer in their top 2 categories is required as well as some specific <code> insights.</code>
@@ -93,7 +93,7 @@ What proportion of each customer’s total films watched does this count make?
    ### Reuirement 5: Favorite Actor Recommendations
  <details> 
   <summary>
-    Requirement #5
+    View Requirement Details
   </summary>
  
  Along with the top 2 categories, marketing has also requested top <code> actor </code> film recommendations where up to 3 more films are included in the recommendations list as well as the count of films by the top actor.
