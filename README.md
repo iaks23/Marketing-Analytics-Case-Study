@@ -97,7 +97,7 @@ What proportion of each customer’s total films watched does this count make?
     Requirement #5
   </summary>
  
- Favorite Actor Recommendations
+ ### Favorite Actor Recommendations
 
  Along with the top 2 categories, marketing has also requested top <code> actor </code> film recommendations where up to 3 more films are included in the recommendations list as well as the count of films by the top actor.
 
