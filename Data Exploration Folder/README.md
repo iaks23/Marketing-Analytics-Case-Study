@@ -35,3 +35,51 @@ The resulting table will be a commbination of these columns and each row would b
 
 ![key_coulmns]()
 
+### Identifying Key Columns
+
+Here we can see that the column <code>rental_count</code> seems to determine a lot of other columns such as <code>average_comparison</code>, <code>percentile</code> <code>category_ranking</code>and even the <code>category_percentage</code>
+
+So if we need to generate the reverse engineered datasets required to calculate this rental_count at a customer_id level - or simply put the number of films that a customer has watched in a specific category--
+
+> We need two main details to achieve this:
+* <code>customer_id</code>
+* <code>category_name</code>
+
+### Data Mapping Journey
+
+From here, it is evident one table is not going to have all the information we need, neither are a combination of two tables. Thus, we can break our Data Journey into <strong> four </strong> steps before deciding on a join. 
+
+💡 We are currently only focusing on getting the first 4 requirements met, we will come back to requirement 5 later.
+
+#### Step 1:
+
+> Start with <code>dvd_rentals.rental</code> table & join it with the <code>dvd_rentals.inventory</code> to obtain <code>customer_id</code>
+
+#### Step 2:
+
+> Connect <code>dvd_rentals.inventory</code> with <code>dvd_rentals.film</code> to get the ID's of the films and titles a particular customer has seen. 
+
+#### Step 3:
+
+> Join <code>dvd_rentals.film</code> and <code>dvd_rentals.film_category</code> to obtain what categories these films belong to. 
+
+### Step 4:
+
+> Finally derive <category_name> by joining <code>dvd_rentals.film_category</code> and <code>dvd_rentals.category</code> and mapping the <code>category_id</code> to the name. 
+
+
+In summary, our Data Mapping Journey looks a little like:
+
+
+|SNo|Start|End|Join On|
+|---|---|---|---|
+|Step 1|<code>rental</code>|<code>inventory</code>|<code>inventory_id</code>|
+|Step 2|<code>inventory</code>|<code>film</code>|<code>film_id</code>|
+|Step 3|<code>film</code>|<code>film_category</code>|<code>film_id</code>|
+|Step 4|<code>film_category</code>|<code>category</code>|<code>category_id</code>|
+
+
+Now that we've finally explored the data, it is time to implement the joins!
+
+[![data_join](https://github.com/iaks23/Marketing-Analytics-Case-Study/blob/main/images/view-data-join-folder.svg)]()
+
