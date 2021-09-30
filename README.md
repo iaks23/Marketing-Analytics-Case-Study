@@ -111,7 +111,7 @@ If the customer doesn’t have at least 1 film recommendation - they also need t
  
  # 🔭 Exploratory Data Analysis <a name='eda'></eda>
  
- Te primary step to any data analysis is to first understand the data. The folks at DVD Rental Co. have given us 7 tables to work with. We must be able to derive as much information from these individual tables before deciding what type of joins can be used to obtain a final table that'll help us get answers.
+ The primary step to any data analysis is to first understand the data. The folks at DVD Rental Co. have given us 7 tables to work with. We must be able to derive as much information from these individual tables before deciding what type of joins can be used to obtain a final table that'll help us get answers.
  
  [![DEF](https://github.com/iaks23/Marketing-Analytics-Case-Study/blob/main/images/view-data-exploration-folder.svg)](https://github.com/iaks23/Marketing-Analytics-Case-Study/tree/main/Data%20Exploration%20Folder)
  
