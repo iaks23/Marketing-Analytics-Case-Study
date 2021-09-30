@@ -14,8 +14,8 @@
 * [⚙️ Requirements](#reqs)
 * [🔭 Exploratory Data Analysis](#eda)
 * [🔁 Data Joining](#join)
-* [📖 Business Questions](#questions)
-* [🌟 Solutions](#solutions)
+* [📖 Business Solutions](#solutions)
+
 
 ----
 # 🚨 Problem Statement <a name='problem'></a>
@@ -122,7 +122,11 @@ If the customer doesn’t have at least 1 film recommendation - they also need t
  
 [![data_join](https://github.com/iaks23/Marketing-Analytics-Case-Study/blob/main/images/view-data-join-folder.svg)](https://github.com/iaks23/Marketing-Analytics-Case-Study/tree/main/Data%20Join%20Folder)
 
+# 📖 Business Solutions <a name='solutions'></a>
 
+We've done all the work necessary to get the final joint table ready, now all that's left is to find those insights and get those templates customized!
+
+[![data_solutions](https://github.com/iaks23/Marketing-Analytics-Case-Study/blob/main/images/view-problem-solving-folder.svg)]()
  
 
 ----------------------
