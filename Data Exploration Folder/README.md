@@ -33,7 +33,7 @@ Along with this, we also require <code>rental_count</code>, <code>average_compar
 
 The resulting table will be a commbination of these columns and each row would be for a unique <customer_id>. Knowing this, we can take a step further and identify all key columns from te existing tables that will help us derive the information required above. 
 
-![key_coulmns]()
+![key_coulmns](https://github.com/iaks23/Marketing-Analytics-Case-Study/blob/main/images/key-columns.png)
 
 ### Identifying Key Columns
 
@@ -81,5 +81,5 @@ In summary, our Data Mapping Journey looks a little like:
 
 Now that we've finally explored the data, it is time to implement the joins!
 
-[![data_join](https://github.com/iaks23/Marketing-Analytics-Case-Study/blob/main/images/view-data-join-folder.svg)]()
+[![data_join](https://github.com/iaks23/Marketing-Analytics-Case-Study/blob/main/images/view-data-join-folder.svg)](https://github.com/iaks23/Marketing-Analytics-Case-Study/tree/main/Data%20Join%20Folder)
 
