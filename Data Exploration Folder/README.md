@@ -1,6 +1,6 @@
 ### Exploratory Data Analysis
 
-Te ERD below explains the 7 different tables we have to work with and the relationship between them. 
+The ERD below explains the 7 different tables we have to work with and the relationship between them. 
 
 <p align="center">
   <img width="650" height="350" src="https://github.com/iaks23/Marketing-Analytics-Case-Study/blob/main/images/ERD.png">
