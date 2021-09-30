@@ -13,6 +13,7 @@
 * [🚨 Problem Statement](#problem)
 * [⚙️ Requirements](#reqs)
 * [🔭 Exploratory Data Analysis](#eda)
+* [🔁 Data Joining](#join)
 * [📖 Business Questions](#questions)
 * [🌟 Solutions](#solutions)
 
@@ -109,11 +110,19 @@ If the customer doesn’t have at least 1 film recommendation - they also need t
 </p>
  </details>
  
- # 🔭 Exploratory Data Analysis <a name='eda'></eda>
+ # 🔭 Exploratory Data Analysis <a name='eda'></a>
  
  The primary step to any data analysis is to first understand the data. The folks at DVD Rental Co. have given us 7 tables to work with. We must be able to derive as much information from these individual tables before deciding what type of joins can be used to obtain a final table that'll help us get answers.
  
  [![DEF](https://github.com/iaks23/Marketing-Analytics-Case-Study/blob/main/images/view-data-exploration-folder.svg)](https://github.com/iaks23/Marketing-Analytics-Case-Study/tree/main/Data%20Exploration%20Folder)
+ 
+ # 🔁 Data Joining <a name='join'></a>
+ 
+ All this exploration has resulted in figuring out which of our tables and columns we can join in order to further answer the business questions!
+ 
+[![data_join](https://github.com/iaks23/Marketing-Analytics-Case-Study/blob/main/images/view-data-join-folder.svg)](https://github.com/iaks23/Marketing-Analytics-Case-Study/tree/main/Data%20Join%20Folder)
+
+
  
 
 ----------------------
