@@ -137,9 +137,9 @@ UNION
 
 
 
-### Bringing it all together
+### Bringing it all together 
 
-![funny-meme]()
+![funny-meme](https://imgflip.com/i/5ows21)
 
 Kudos on making it this far! All that's left to do is bring our tables together. 
 
