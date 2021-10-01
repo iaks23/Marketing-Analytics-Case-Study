@@ -25,7 +25,7 @@ The best way to answer these questions is to follow a 2-phase approach where we 
 2. There will be a multiple records per unique <code>inventory_id</code> in the <code>dvd_rentals.rental</code> table.
 3. There will be multiple <code>inventory_id</code> records per unique <code>film_id</code> value in the <code>dvd_rentals.inventory</code> table.
 
-You can find the SQL code I've followed to validate these hypotheses [here](). 
+You can find the SQL code I've followed to validate these hypotheses [here](https://github.com/iaks23/Marketing-Analytics-Case-Study/blob/main/Data%20Join%20Folder/Hypotheses.sql). 
 
 This finally gives us the green signal to implement our Joins. 
 
