@@ -19,4 +19,17 @@ Here are a few unknowns that we need to address as we are matching the <code>inv
 
 The best way to answer these questions is to follow a 2-phase approach where we generate a hypotheses and then try to validate them. 
 
+### Hypotheses 
+
+1. The number of unique <code>inventory_id</code> records will be equal in both <code>dvd_rentals.rental</code> and <code>dvd_rentals.inventory</code> tables.
+2. There will be a multiple records per unique <code>inventory_id</code> in the <code>dvd_rentals.rental</code> table.
+3. There will be multiple <code>inventory_id</code> records per unique <code>film_id</code> value in the <code>dvd_rentals.inventory</code> table.
+
+You can find the SQL code I've followed to validate these hypotheses [here](). 
+
+This finally gives us the green signal to implement our Joins. 
+
+![funny-gif]()
+
+
 
