@@ -236,3 +236,126 @@ FROM top_categories_information
 WHERE customer_id in (1, 2, 3)
 ORDER BY customer_id, category_ranking;
 
+
+
+
+Breaking down the steps of finding category & actor insights
+
+
+Create Base Dataset: We also included the rental_date column to help us split ties for rankings which had the same count of rentals at a customer level - this helps us prioritise film categories which were more recently viewed.
+
+DROP TABLE IF EXISTS complete_joint_dataset;
+CREATE TEMP TABLE complete_joint_dataset AS
+SELECT
+  rental.customer_id,
+  inventory.film_id,
+  film.title,
+  category.name AS category_name,
+  -- also included rental_date for sorting purposes
+  rental.rental_date
+FROM dvd_rentals.rental
+INNER JOIN dvd_rentals.inventory
+  ON rental.inventory_id = inventory.inventory_id
+INNER JOIN dvd_rentals.film
+  ON inventory.film_id = film.film_id
+INNER JOIN dvd_rentals.film_category
+  ON film.film_id = film_category.film_id
+INNER JOIN dvd_rentals.category
+  ON film_category.category_id = category.category_id;
+
+
+
+  Category Counts
+  DROP TABLE IF EXISTS category_counts;
+CREATE TEMP TABLE category_counts AS
+SELECT
+  customer_id,
+  category_name,
+  COUNT(*) AS rental_count,
+  MAX(rental_date) AS latest_rental_date
+FROM complete_joint_dataset
+GROUP BY
+  customer_id,
+  category_name;
+
+Helps us get the top categories based on rental counts for each customer
+
+
+TOTAL COUNTS----> All the movies a customer has ever rented
+
+DROP TABLE IF EXISTS total_counts;
+CREATE TEMP TABLE total_counts AS
+SELECT
+  customer_id,
+  SUM(rental_count) AS total_count
+FROM category_counts
+GROUP BY
+  customer_id;
+
+
+Top Categories:
+
+DROP TABLE IF EXISTS top_categories;
+CREATE TABLE top_categories AS
+WITH ranked_cte AS (
+  SELECT
+    customer_id,
+    category_name,
+    rental_count,
+    DENSE_RANK() OVER (
+      PARTITION BY customer_id
+      ORDER BY
+        rental_count DESC,
+        latest_rental_date DESC,
+        category_name
+    ) AS category_rank
+  FROM category_counts
+)
+SELECT * FROM ranked_cte
+WHERE category_rank <= 2;
+
+
+GET ONLY TOP 2
+
+Average Category Count: Average of DVD Rental Co.
+
+DROP TABLE IF EXISTS average_category_count;
+CREATE TEMP TABLE average_category_count AS
+SELECT
+  category_name,
+  FLOOR(AVG(rental_count)) AS category_average
+FROM category_counts
+GROUP BY category_name;
+
+Top Category Percentile
+
+DROP TABLE IF EXISTS top_category_percentile;
+CREATE TABLE top_category_percentile AS
+WITH calculated_cte AS (
+SELECT
+  top_categories.customer_id,
+  top_categories.category_name AS top_category_name,
+  top_categories.rental_count,
+  category_counts.category_name,
+  top_categories.category_rank,
+  PERCENT_RANK() OVER (
+    PARTITION BY category_counts.category_name
+    ORDER BY category_counts.rental_count DESC
+  ) AS raw_percentile_value
+FROM category_counts
+LEFT JOIN top_categories
+  ON category_counts.customer_id = top_categories.customer_id
+)
+SELECT
+  customer_id,
+  category_name,
+  rental_count,
+  category_rank,
+  CASE
+    WHEN ROUND(100 * raw_percentile_value) = 0 THEN 1
+    ELSE ROUND(100 * raw_percentile_value)
+  END AS percentile
+FROM calculated_cte
+WHERE
+  category_rank = 1
+  AND top_category_name = category_name;
