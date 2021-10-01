@@ -27,9 +27,7 @@ The best way to answer these questions is to follow a 2-phase approach where we 
 
 You can find the SQL code I've followed to validate these hypotheses [here](https://github.com/iaks23/Marketing-Analytics-Case-Study/blob/main/Data%20Join%20Folder/Hypotheses.sql). 
 
-This finally gives us the green signal to implement our Joins. 
-
-![funny-gif]()
+This finally gives us the green signal to implement our Joins. WOOHOO!
 
 After performing this analysis we can conclude there is in fact no difference between running a <code>LEFT JOIN</code> or an <code>INNER JOIN</code>
 
@@ -84,7 +82,7 @@ UNION
 
 We now go through our assumptions to join our output from part 1. We go through the checlist for <code>dvd_rentals.inventory</code> and <code>dvd_rentals.film</code> tables. 
 
-You can find the SQL implemmentation [here]()
+You can find the SQL implemmentation [here](https://github.com/iaks23/Marketing-Analytics-Case-Study/blob/main/Data%20Join%20Folder/Hypotheses%20P2.sql)
 
 Once again, there is no difference between the <code>LEFT JOIN</code> or an <code>INNER JOIN</code>, as proven by
 
@@ -139,7 +137,9 @@ UNION
 
 ### Bringing it all together 
 
-![funny-meme](https://imgflip.com/i/5ows21)
+<p align="center">
+  <img width="350" height="350" src="https://github.com/iaks23/Marketing-Analytics-Case-Study/blob/main/images/meme1.jpg">
+</p>
 
 Kudos on making it this far! All that's left to do is bring our tables together. 
 
