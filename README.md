@@ -119,7 +119,7 @@ If the customer doesn’t have at least 1 film recommendation - they also need t
  
  # 🔁 Data Joining <a name='join'></a>
  
- ### View Summary
+ ### View Summary 👇
 <details>
  <summary> EDA Re-Cap </summary>
  
@@ -139,10 +139,41 @@ If the customer doesn’t have at least 1 film recommendation - they also need t
 [![data_join](https://github.com/iaks23/Marketing-Analytics-Case-Study/blob/main/images/view-data-join-folder.svg)](https://github.com/iaks23/Marketing-Analytics-Case-Study/tree/main/Data%20Join%20Folder)
 
 # 📖 SQL Problem Solving <a name='solving'></a>
+### Data Join Re-Cap 👇
+
+<details>
+ <summary> BASE TABLE RECAP </summary>
+ 
+ ```SQL 
+DROP TABLE IF EXISTS complete_joint_dataset;
+CREATE TEMP TABLE complete_joint_dataset AS
+SELECT
+  rental.customer_id,
+  inventory.film_id,
+  film.title,
+  film_category.category_id,
+  category.name AS category_name
+FROM dvd_rentals.rental
+INNER JOIN dvd_rentals.inventory
+  ON rental.inventory_id = inventory.inventory_id
+INNER JOIN dvd_rentals.film
+  ON inventory.film_id = film.film_id
+INNER JOIN dvd_rentals.film_category
+  ON film.film_id = film_category.film_id
+INNER JOIN dvd_rentals.category
+  ON film_category.category_id = category.category_id;
+
+SELECT * FROM complete_joint_dataset limit 2;
+```
+|Customer_Id|Film_Id|Title|category_id|category|
+|---|---|---|---|---|
+|130|80|BLANKET BEVERLY|8|Family|
+|459|333|FREAKY POCUS|12|Music|
+ 
+ </details>
 
 
-
-[![data_solutions](https://github.com/iaks23/Marketing-Analytics-Case-Study/blob/main/images/view-problem-solving-folder.svg)]()
+[![data_solutions](https://github.com/iaks23/Marketing-Analytics-Case-Study/blob/main/images/view-problem-solving-folder.svg)](https://github.com/iaks23/Marketing-Analytics-Case-Study/tree/main/Problem%20Solutions%20Folder)
 
 
 # 📊 Business Questions Solutions <a name='solutions'></a>
