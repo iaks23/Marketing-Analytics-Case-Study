@@ -171,7 +171,7 @@ SELECT * FROM complete_joint_dataset limit 2;
 |130|80|BLANKET BEVERLY|8|Family|
 |459|333|FREAKY POCUS|12|Music|
 
-#### Stick around, let's find out how to use this base table to calculate our aggregations!
+#### Stick around, let's find out how to use this base table to calculate our aggregations! 👇
 
-
+[![problem-solving](https://github.com/iaks23/Marketing-Analytics-Case-Study/blob/main/images/view-problem-solving-folder.svg)](https://github.com/iaks23/Marketing-Analytics-Case-Study/tree/main/Problem%20Solutions%20Folder)
 
