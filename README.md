@@ -118,7 +118,22 @@ If the customer doesn’t have at least 1 film recommendation - they also need t
  
  # 🔁 Data Joining <a name='join'></a>
  
- All this exploration has resulted in figuring out which of our tables and columns we can join in order to further answer the business questions!
+ ### View Summary
+<details>
+ <summary> EDA Re-Cap </summary>
+ 
+ Data Mapping Journey
+ 
+|SNo|Start|End|Join On|
+|---|---|---|---|
+|Step 1|<code>rental</code>|<code>inventory</code>|<code>inventory_id</code>|
+|Step 2|<code>inventory</code>|<code>film</code>|<code>film_id</code>|
+|Step 3|<code>film</code>|<code>film_category</code>|<code>film_id</code>|
+|Step 4|<code>film_category</code>|<code>category</code>|<code>category_id</code>|
+
+ </details>
+ 
+ We lastly identified key columns and all the tables that will provide us with these details. It is natural to face a dilemma about what kind of join to use in order to retain only the data that is important to us. Is it going to be a <code>left-join</code> or an <code>inner-join</code> ? Let's try to tackle these questions and truly find the purpose of our joins..
  
 [![data_join](https://github.com/iaks23/Marketing-Analytics-Case-Study/blob/main/images/view-data-join-folder.svg)](https://github.com/iaks23/Marketing-Analytics-Case-Study/tree/main/Data%20Join%20Folder)
 
