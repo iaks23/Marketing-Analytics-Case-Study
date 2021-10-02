@@ -178,6 +178,68 @@ SELECT * FROM complete_joint_dataset limit 2;
 
 # 🐣 Final Outputs <a name='output'></a>
 
+We are looking into <code>customer_id = 1</code> rental insights to generate an e-mail template.
+
+<details>
+ <summary> Top 2 Categories </sumary>
+ |Customer_Id|category_name|rental_count|category_rank|
+|---|---|---|---|
+|1|Classics|6|1|
+|1|Comedy|5|2|
+ 
+ </details>
+
+<details>
+ <summary> Category Insights </sumary>
+ <code>First Category Insights </code>
+ |Customer_Id|category_name|rental_count|average_comparison|percentile|
+|---|---|---|---|---|
+|1|Classics|6|4|1|
+ 
+ <code> Second Category Insights </code>
+ 
+ |Customer_Id|category_name|rental_count|total_percentage|
+|---|---|---|---|
+|1|Comedy|5|16|
+ 
+ 
+ </details>
+ 
+ <details>
+ <summary>Category Recommendations</summary>
+ 
+ |Customer_Id|category_name|category_rank|film_id|title|rental_count|reco_rank|
+|---|---|---|---|---|---|---|
+|1|Classics|1|891|Timberland Sky|31|1|
+|1|Classics|1|358|Gilmore Boiled|31|2|
+|1|Classics|1|951|Voyage Legally|28|3|
+|1|Comedy|2|1000|Zorro Ark|31|1|
+|1|Comedy|2|127|Cat Coneheads|30|2|
+|1|Comedy|2|638|Operation Operation|27|3|
+ 
+ </details>
+ 
+ <details>
+ <summary> Top Actor </summary>
+ |Customer Id|Actor Id|First Name|Last Name|Rental Count|
+|---|---|---|---|---|
+|1|37|VAL|BOLGER|6|
+ </details>
+ 
+ <details>
+ <summary> Actor Recommendations </summary>
+ |Customer_Id|first_name|last_name|rental_count|title|film_id|actor_id|reco_rank|
+|---|---|---|---|---|---|---|---|
+|1|Val|Bolger|6|Primary Glass|697|37|1|
+|1|Val|Bolger|6|Alaska Phantom|12|37|2|
+|1|Val|Bolger|6|Metropolis Coma|572|37|3|
+ 
+ </details>
+
+
+### Final e-mail template!
+
+*Drumroll please*
 
 
 
