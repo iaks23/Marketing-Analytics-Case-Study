@@ -15,6 +15,7 @@
 * [🔭 Exploratory Data Analysis](#eda)
 * [🔁 Data Joining](#join)
 * [📖 SQL Problem Solving](#solving)
+* [🐣 Final Outputs](#output)
 * [📊 Business Questions Solutions](#solutions)
 
 
@@ -174,6 +175,10 @@ SELECT * FROM complete_joint_dataset limit 2;
 
 
 [![data_solutions](https://github.com/iaks23/Marketing-Analytics-Case-Study/blob/main/images/view-problem-solving-folder.svg)](https://github.com/iaks23/Marketing-Analytics-Case-Study/tree/main/Problem%20Solutions%20Folder)
+
+# 🐣 Final Outputs <a name='output'></a>
+
+
 
 
 # 📊 Business Questions Solutions <a name='solutions'></a>
