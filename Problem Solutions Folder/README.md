@@ -11,7 +11,7 @@ We've got our analysis, and we've formed our base table, all that's left to do i
 * [Actor Recommendations](#actrec)
 * [Final Transformation](#output)
 
-> P.S. if you want to skip all this and skip right to the main SQL script, click [here]() 
+> P.S. if you want to skip all this and skip right to the main SQL script, click [here](https://github.com/iaks23/Marketing-Analytics-Case-Study/blob/main/Problem%20Solutions%20Folder/Final_Transform.sql) 
 
 ------
 
@@ -620,6 +620,8 @@ LIMIT 2;
 |1|Classics|Timberland Sky|Gilmore Boiled|Voyage Legally|Comedy|Zorro Ark|Cat Coneheads|Operation Operation|Val Bolger|Primary Glass|Alaska Phantom|Metropolis Coma|You’ve watched 6 Classics films, that’s 4 more than the DVD Rental Co average and puts you in the top 1% of Classics gurus!|You’ve watched 5 Comedy films making up 16% of your entire viewing history!|You’ve watched 6 films featuring Val Bolger! Here are some other films Val stars in that might interest you!|
 |2|Sports|Gleaming Jawbreaker|GTalented Homicide|Roses Treasure|Classics|Frost Head|Gilmore Boiled|Voyage Legally|Gina Degeneres|Goodfellas Salute|Wife Turn|Dogma Family|You’ve watched 5 Sports films, that’s 3 more than the DVD Rental Co average and puts you in the top 2% of Sports gurus!|You’ve watched 4 Classics films making up 15% of your entire viewing history!|You’ve watched 5 films featuring Gina Degeneres! Here are some other films Gina stars in that might interest you!|
 
+
+-------
 
 
 
