@@ -287,7 +287,7 @@ SELECT * FROM ranked_films_cte
 WHERE reco_rank <= 3;
 ```
 
-For customer_id = 1, 
+For <code>customer_id = 1</code>,
 
 ```SELECT *
 FROM category_recommendations
@@ -303,6 +303,88 @@ ORDER BY category_rank, reco_rank;
 |1|Comedy|2|127|Cat Coneheads|30|2|
 |1|Comedy|2|638|Operation Operation|27|3|
 
+# Actor Insights <a name='actin'></a>
+
+For this entire analysis on actors - we will need to create a new base table as we will need to introduce the <code>dvd_rentals.film_actor</code> and <code>dvd_rentals.actor</code> tables to extract all the required data points we need for the final output.
+
+## Creating Joint Table
+
+```SQL
+DROP TABLE IF EXISTS actor_joint_dataset;
+CREATE TEMP TABLE actor_joint_dataset AS
+SELECT
+  rental.customer_id,
+  rental.rental_id,
+  rental.rental_date,
+  film.film_id,
+  film.title,
+  actor.actor_id,
+  actor.first_name,
+  actor.last_name
+FROM dvd_rentals.rental
+INNER JOIN dvd_rentals.inventory
+  ON rental.inventory_id = inventory.inventory_id
+INNER JOIN dvd_rentals.film
+  ON inventory.film_id = film.film_id
+-- different to our previous base table as we know use actor tables
+INNER JOIN dvd_rentals.film_actor
+  ON film.film_id = film_actor.film_id
+INNER JOIN dvd_rentals.actor
+  ON film_actor.actor_id = actor.actor_id;
+```
+
+## Top Actor Count 
+
+```SQL
+DROP TABLE IF EXISTS top_actor_counts;
+CREATE TEMP TABLE top_actor_counts AS
+WITH actor_counts AS (
+  SELECT
+    customer_id,
+    actor_id,
+    first_name,
+    last_name,
+    COUNT(*) AS rental_count,
+    -- we also generate the latest_rental_date just like our category insight
+    MAX(rental_date) AS latest_rental_date
+  FROM actor_joint_dataset
+  GROUP BY
+    customer_id,
+    actor_id,
+    first_name,
+    last_name
+),
+ranked_actor_counts AS (
+  SELECT
+    actor_counts.*,
+    DENSE_RANK() OVER (
+      PARTITION BY customer_id
+      ORDER BY
+        rental_count DESC,
+        latest_rental_date DESC,
+        -- just in case we have any further ties, we'll throw in the names too!
+        first_name,
+        last_name
+    ) AS actor_rank
+  FROM actor_counts
+)
+SELECT
+  customer_id,
+  actor_id,
+  first_name,
+  last_name,
+  rental_count
+FROM ranked_actor_counts
+WHERE actor_rank = 1;
+```
+|Customer Id|Actor Id|First Name|Last Name|Rental Count|
+|---|---|---|---|---|
+|1|37|VAL|BOLGER|6|
+|2|107|GINA|DEGENERES|5|
+
+------
+
+# Actor Recommendations <a name='actrec'></a>
 
 
 
