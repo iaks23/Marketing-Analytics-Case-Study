@@ -241,9 +241,9 @@ We are looking into <code>customer_id = 1</code> rental insights to generate an 
 
 *Drumroll please*
 
+Here's what's waiting for the customer!
 
-
- 
+![final-flyer](https://github.com/iaks23/Marketing-Analytics-Case-Study/blob/main/images/datawdanny-resized.png)
 
 ----------------------
 
