@@ -221,18 +221,20 @@ We are looking into <code>customer_id = 1</code> rental insights to generate an 
  
  <details>
  <summary> Top Actor </summary>
+ 
  |Customer Id|Actor Id|First Name|Last Name|Rental Count|
-|---|---|---|---|---|
-|1|37|VAL|BOLGER|6|
+ |---|---|---|---|---|
+ |1|37|VAL|BOLGER|6|
  </details>
  
  <details>
  <summary> Actor Recommendations </summary>
+ 
  |Customer_Id|first_name|last_name|rental_count|title|film_id|actor_id|reco_rank|
-|---|---|---|---|---|---|---|---|
-|1|Val|Bolger|6|Primary Glass|697|37|1|
-|1|Val|Bolger|6|Alaska Phantom|12|37|2|
-|1|Val|Bolger|6|Metropolis Coma|572|37|3|
+ |---|---|---|---|---|---|---|---|
+ |1|Val|Bolger|6|Primary Glass|697|37|1|
+ |1|Val|Bolger|6|Alaska Phantom|12|37|2|
+ |1|Val|Bolger|6|Metropolis Coma|572|37|3|
  
  </details>
 
@@ -243,7 +245,10 @@ We are looking into <code>customer_id = 1</code> rental insights to generate an 
 
 Here's what's waiting for the customer!
 
-![final-flyer](https://github.com/iaks23/Marketing-Analytics-Case-Study/blob/main/images/datawdanny-resized.png)
+<p align="center">
+  <img  src="https://github.com/iaks23/Marketing-Analytics-Case-Study/blob/main/images/datawdanny-resized.png">
+</p>
+
 
 ----------------------
 
