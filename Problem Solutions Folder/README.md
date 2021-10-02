@@ -386,6 +386,110 @@ WHERE actor_rank = 1;
 
 # Actor Recommendations <a name='actrec'></a>
 
+## Actor Film Counts
+
+To generate a temo table which gets the actors and an aggregated total counts of their movies which have been rented from across the database.
+
+```SQL
+DROP TABLE IF EXISTS actor_film_counts;
+CREATE TEMP TABLE actor_film_counts AS
+WITH film_counts AS (
+  SELECT
+    film_id,
+    COUNT(DISTINCT rental_id) AS rental_count
+  FROM actor_joint_dataset
+  GROUP BY film_id
+)
+SELECT DISTINCT
+  actor_joint_dataset.film_id,
+  actor_joint_dataset.actor_id,
+  -- why do we keep the title here? can you figure out why?
+  actor_joint_dataset.title,
+  film_counts.rental_count
+FROM actor_joint_dataset
+LEFT JOIN film_counts
+  ON actor_joint_dataset.film_id = film_counts.film_id;
+```
+
+## Actor Film Exclusions
+
+Similar to the category, we have to recommend only those movies of an actor to a customer, which they have not seen before.
+
+> We can perform the same steps we used to create the <code>category_film_exclusions</code> table - however we also need to <code>UNION</code> our exclusions with         the relevant category recommendations that we have already given our customers.
+
+> The rationale behind this - customers would not want to receive a recommendation for the same film twice in the same email!
+
+```SQL
+DROP TABLE IF EXISTS actor_film_exclusions;
+CREATE TEMP TABLE actor_film_exclusions AS
+-- repeat the first steps as per the category exclusions
+-- we'll use our original complete_joint_dataset as the base here
+-- can you figure out why???
+(
+  SELECT DISTINCT
+    customer_id,
+    film_id
+  FROM complete_joint_dataset
+)
+-- we use a UNION to combine the previously watched and the recommended films!
+UNION
+(
+  SELECT DISTINCT
+    customer_id,
+    film_id
+  FROM category_recommendations
+);
+```
+## Final Actor Recommendations
+
+Bringing all temp tables together,
+
+```SQL
+DROP TABLE IF EXISTS actor_recommendations;
+CREATE TEMP TABLE actor_recommendations AS
+WITH ranked_actor_films_cte AS (
+  SELECT
+    top_actor_counts.customer_id,
+    top_actor_counts.first_name,
+    top_actor_counts.last_name,
+    top_actor_counts.rental_count,
+    actor_film_counts.title,
+    actor_film_counts.film_id,
+    actor_film_counts.actor_id,
+    DENSE_RANK() OVER (
+      PARTITION BY
+        top_actor_counts.customer_id
+      ORDER BY
+        actor_film_counts.rental_count DESC,
+        actor_film_counts.title
+    ) AS reco_rank
+  FROM top_actor_counts
+  INNER JOIN actor_film_counts
+    -- join on actor_id instead of category_name!
+    ON top_actor_counts.actor_id = actor_film_counts.actor_id
+  -- This is a tricky anti-join where we need to "join" on 2 different tables!
+  WHERE NOT EXISTS (
+    SELECT 1
+    FROM actor_film_exclusions
+    WHERE
+      actor_film_exclusions.customer_id = top_actor_counts.customer_id AND
+      actor_film_exclusions.film_id = actor_film_counts.film_id
+  )
+)
+SELECT * FROM ranked_actor_films_cte
+WHERE reco_rank <= 3;
+```
+|Customer_Id|first_name|last_name|rental_count|title|film_id|actor_id|reco_rank|
+|---|---|---|---|---|---|---|---|
+|1|Val|Bolger|6|Primary Glass|697|37|1|
+|1|Val|Bolger|6|Alaska Phantom|12|37|2|
+|1|Val|Bolger|6|Metropolis Coma|572|37|3|
+
+
+
+
+
+
 
 
 
