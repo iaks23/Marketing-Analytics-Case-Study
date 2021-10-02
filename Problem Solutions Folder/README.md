@@ -2,7 +2,7 @@
 
 We've got our analysis, and we've formed our base table, all that's left to do is generate the insights and customize our report! 
 
-![gif-plan]()
+![gif-plan](https://github.com/iaks23/Marketing-Analytics-Case-Study/blob/main/images/plan.GIF)
 
 ## Solution Plan Breakdown 📋
 * [Category Insights](#catin)
