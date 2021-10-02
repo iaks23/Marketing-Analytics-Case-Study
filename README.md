@@ -181,7 +181,7 @@ SELECT * FROM complete_joint_dataset limit 2;
 We are looking into <code>customer_id = 1</code> rental insights to generate an e-mail template.
 
 <details>
- <summary> Top 2 Categories </sumary>
+ <summary> Top 2 Categories </summary>
  |Customer_Id|category_name|rental_count|category_rank|
 |---|---|---|---|
 |1|Classics|6|1|
@@ -190,7 +190,7 @@ We are looking into <code>customer_id = 1</code> rental insights to generate an 
  </details>
 
 <details>
- <summary> Category Insights </sumary>
+ <summary> Category Insights </summary>
  <code>First Category Insights </code>
  |Customer_Id|category_name|rental_count|average_comparison|percentile|
 |---|---|---|---|---|
