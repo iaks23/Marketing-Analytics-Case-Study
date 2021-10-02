@@ -16,7 +16,7 @@
 * [🔁 Data Joining](#join)
 * [📖 SQL Problem Solving](#solving)
 * [🐣 Final Outputs](#output)
-* [📊 Business Questions Solutions](#solutions)
+
 
 
 ----
@@ -243,7 +243,6 @@ We are looking into <code>customer_id = 1</code> rental insights to generate an 
 
 
 
-# 📊 Business Questions Solutions <a name='solutions'></a>
  
 
 ----------------------
