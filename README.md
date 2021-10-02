@@ -182,6 +182,7 @@ We are looking into <code>customer_id = 1</code> rental insights to generate an 
 
 <details>
  <summary> Top 2 Categories </summary>
+ 
  |Customer_Id|category_name|rental_count|category_rank|
 |---|---|---|---|
 |1|Classics|6|1|
@@ -191,7 +192,9 @@ We are looking into <code>customer_id = 1</code> rental insights to generate an 
 
 <details>
  <summary> Category Insights </summary>
+ 
  <code>First Category Insights </code>
+ 
  |Customer_Id|category_name|rental_count|average_comparison|percentile|
 |---|---|---|---|---|
 |1|Classics|6|4|1|
